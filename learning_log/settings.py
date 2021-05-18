@@ -143,12 +143,12 @@ BOOTSTRAP3 = {
 #Heroku设置
 if os.getcwd() == '/app':
     import dj_database_url
-    DATABASE = {
+    DATABASES = {
         'default': dj_database_url.config(default='postgres://localhost')
     }
 
     #让request.is_secure()承认X-Forwarded-Proto头
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARD_PROTO', 'https')
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
     #支持所有的主机头(host header)
     ALLOWED_HOSTS = ['*']
